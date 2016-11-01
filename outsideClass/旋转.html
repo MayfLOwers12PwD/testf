@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#circle{
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+				margin: 50px;
+				float: left;
+				transition: all 2s ease;
+				background-image:-webkit-linear-gradient(left,red,red),-webkit-linear-gradient(top,red,red);
+				background-repeat: no-repeat;
+				background-size:100% 1px,1px 100%;
+				background-position:left 50%,50% top;
+			}
+			#circle:hover{
+				transform: rotateX(60deg);
+			}
+			#circle1{
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+				margin: 50px;
+				float: left;
+				transition: all 1s ease;
+				background-image:-webkit-linear-gradient(left,red,red),-webkit-linear-gradient(top,red,red);
+				background-repeat: no-repeat;
+				background-size:100% 1px,1px 100%;
+				background-position:left 50%,50% top;
+			}
+			#circle1:hover{
+				transform: rotate(180deg);
+			}
+			#circle2{
+				width: 100px;
+				height: 100px;
+				transition: all 1s ease;
+				border: 1px solid red;
+				margin: 50px;
+				float: left;
+				background-image:-webkit-linear-gradient(left,red,red),-webkit-linear-gradient(top,red,red);
+				background-repeat: no-repeat;
+				background-size:100% 1px,1px 100%;
+				background-position:left 50%,50% top;
+			}
+			#circle2:hover{
+				transform: rotateX(180deg);
+				transform-origin: left top;
+			}
+			#circle3{
+				width: 100px;
+				height: 100px;
+				transition: all 1s ease;
+				border: 1px solid red;
+				margin: 50px;
+				float: left;
+				background-image:-webkit-linear-gradient(left,red,red),-webkit-linear-gradient(top,red,red);
+				background-repeat: no-repeat;
+				background-size:100% 1px,1px 100%;
+				background-position:left 50%,50% top;
+			}
+			#circle3:hover{
+				transform: rotateY(180deg);
+				transform-origin: left top;
+			}
+			#circle4{
+				width: 100px;
+				height: 100px;
+				transition: all 1s ease;
+				border: 1px solid red;
+				margin: 50px;
+				float: left;
+				background-image:-webkit-linear-gradient(left,red,red),-webkit-linear-gradient(top,red,red);
+				background-repeat: no-repeat;
+				background-size:100% 1px,1px 100%;
+				background-position:left 50%,50% top;
+			}
+			#circle4:hover{
+				transform: rotate(360deg);
+				transform-origin: right bottom;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="circle">	
+		</div>
+		<div id="circle1">
+		</div>
+		<div id="circle2">
+		</div>
+		<div id="circle3">
+		</div>
+		<div id="circle4">
+		</div>
+	</body>
+</html>

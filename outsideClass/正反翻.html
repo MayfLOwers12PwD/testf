@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 300px;
+				height: 300px;
+				margin: 200px auto 30px;
+				position: relative;
+				-webkit-perspective: 800;
+				-moz-perspective: 800;
+				-ms-perspective: 800;
+				perspective: 800;
+				transform-style: preserve-3d;
+				transform-origin: 50% 50%;
+				transition: all 2s ease;
+				transform: rotateX(54deg) rotateY(-2deg) rotateZ(26deg) translateZ(0px);
+			}
+			#wrap .shu{
+				width: 300px;
+				height: 300px;
+				background: lightskyblue;
+				position: absolute;
+				transform-origin: left;
+				transition: all 2s ease;
+				transform: rotateY(0deg);
+				color: white;
+				font-size: 30px;
+				line-height: 300px;
+				text-align: center;
+				transform-style:preserve-3d;
+			}
+			#wrap .shu span{
+				display: block;
+				position: absolute;
+				width: 300px;
+				text-align: center;
+				background:lightskyblue ;
+			}
+			#wrap .shu span:nth-of-type(2){
+				transform: rotateY(180deg);
+			}
+			button{
+				margin: 0 auto;
+				display: block;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<body>
+		<div id="wrap">
+			<div  class="content1 shu">
+				<span>刘畅SB1</span>
+				<span>刘畅SB1反面</span>
+			</div>
+			<div class="content2 shu">
+				<span>刘畅SB2</span>
+				<span>刘畅SB2反面</span>
+			</div>
+			<div class="content3 shu">
+				<span>刘畅SB3</span>
+				<span>刘畅SB3反面</span>
+			</div>
+			<div class="content4 shu">
+				<span>刘畅SB4</span>
+				<span>刘畅SB4反面</span>
+			</div>
+			<div  class="content5 shu">
+				<span>刘畅SB5</span>
+				<span>刘畅SB5反面</span>
+			</div>
+			<div id="content" class="content6 shu">
+				<span>刘畅SB6</span>
+				<span>刘畅SB6反面</span>
+			</div>
+		</div>
+		<button id="next">下一页</button>
+		<button id="pre">上一页</button>
+	</body>
+	<script type="text/javascript">
+		for(var i=0;i<$(".shu").length;i++){
+			$(".shu").eq(i).css({"z-index":$(".shu").length-i});
+		}
+		var index=0
+		$("#next").click(function(){
+			if(index<$(".shu").length){
+			$(".shu").eq(index).css({"transform":"rotateY(-180deg)"});
+			index++;
+			}
+			console.log(index)
+		})
+		$("#pre").click(function(){
+			if(index>0){
+			index--;
+			$(".shu").eq(index).css({"transform":"rotateY(0deg)"});	
+			}
+		})
+		//transition: all 2s ease;
+	</script>
+</html>

@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关键帧动画</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#move{
+				width: 500px;
+				height: 500px;
+				border: 2px solid red;
+				position: relative;
+				margin: 10px auto 50px;
+				overflow: hidden;
+			}
+			#charector{
+				position: absolute;
+				height: 300px;
+				width: 180px;
+				bottom:0;
+				background: url(img/charector.png);
+				background-repeat: no-repeat;
+				background-position: -180px 0;
+				animation-duration: 900ms;
+				animation-iteration-count: infinite;
+				animation-timing-function: step-start;/* 马上跳到动画每一结束桢的状态 */
+				
+			}
+		
+@keyframes move{
+    0% 	{  background-position: 0 0;}
+    14.3% {background-position: -180px 0}
+    28.6% {background-position: -360px 0}
+    42.9% {background-position: -540px 0;}
+    57.2% {background-position: -720px 0;}
+    71.5% {background-position: -900px 0;}
+    85.8% {background-position: -1080px 0;}
+    100% {background-position: 0 0;}
+} 
+		
+.move{
+	animation-name: move;
+}
+.paused{
+	animation-play-state: paused;
+}		
+	
+		</style>
+	</head>
+	<body>
+		<fieldset id="">
+			<legend>关键帧动画</legend>
+			<div id="move">
+				<div id="charector"> </div>
+			</div>
+			<button id="start">开始动画</button>
+			<button id="stop">暂停</button>
+			<button id="up">加速</button>
+			<button id="down">减速</button>
+		</fieldset>
+		
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script>
+		$("#start").click(function(){
+			$("#charector").attr("class","move");
+		});
+		$("#stop").click(function(){
+			$("#charector").attr("class","paused");
+		});
+		
+		var i = 1;
+		$("#up").click(function(){
+		i++
+		var duration =parseFloat( $("#charector").css("animation-duration"));
+		$("#charector").css({"animation-duration":duration-(i*0.01)+"s"});
+		});	
+		
+		var j =0;
+	$("#down").click(function(){
+		j++
+		var duration =parseFloat( $("#charector").css("animation-duration"));
+		$("#charector").css({"animation-duration":duration+(j*0.01)+"s"});
+		});	
+		
+	</script>
+</html>

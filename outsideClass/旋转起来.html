@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#rotate {
+				width: 600px;
+				height: 400px;
+				margin: 0 auto;
+				overflow: hidden;
+				display: block;
+				cursor: pointer;
+				position: relative;
+				background: gray;
+			}
+			#rotate img{
+				transform: scale(1.2);
+				-webkit-transition: all 2s ease;
+				-moz-transition: all 2s ease;
+				-ms-transition: all 2s ease;
+				-o-transition: all 2s ease;
+				transition: all 2s ease;
+			}
+			#circle {
+				position: absolute;
+				top: 10%;
+				left: 25%;
+				width: 300px;
+				height: 300px;
+				border: 1px solid red;
+				background-image: -webkit-linear-gradient(left, red, red), -webkit-linear-gradient(top, red, red);
+				background-repeat: no-repeat;
+				background-size: 100% 1px, 1px 100%;
+				background-position: left 50%, 50% top;
+				transition: all 2s ease;
+				transform: translateY(-500px) rotate(360deg);
+			}
+			#rotate:hover #circle{
+				transform: translateY(0) rotate(0deg);
+			}
+			#rotate:hover img{
+				transform: scale(1);
+			}
+		</style>
+	</head>
+
+	<body>
+		<fieldset>
+			<legend>旋转起来</legend>
+			<div id="rotate">
+				<img src="img/pic2.jpg"/>
+				<div id="circle">
+
+				</div>
+			</div>
+
+		</fieldset>
+	</body>
+
+</html>

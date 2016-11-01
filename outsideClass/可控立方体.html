@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				background: black;
+				color: white;
+			}
+			
+			#wrap {
+				width: 300px;
+				height: 300px;
+				margin: 100px auto 50px;
+				position: relative;
+				transform-style: preserve-3d;
+				transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+				box-shadow: 0px 0px 100px orangered inset;
+			}
+			
+			#wrap .box {
+				background-image: -webkit-linear-gradient(left, silver, orangered), -webkit-linear-gradient(left, silver, silver), -webkit-linear-gradient(left, orangered, silver), -webkit-linear-gradient(top, silver, orangered), -webkit-linear-gradient(top, orangered, orangered), -webkit-linear-gradient(top, orangered, silver);
+				background-repeat: no-repeat;
+				background-size: 100% 1px, 100% 1px, 100% 1px, 1px 100%, 1px 100%, 1px 100%;
+				background-position: left 25%, left 50%, left 75%, 25% top, 50% top, 75% top;
+				width: 300px;
+				height: 300px;
+				position: absolute;
+				color: white;
+				font-size: 100px;
+				line-height: 300px;
+				text-align: center;
+				border: 1px solid silver;
+				box-shadow: 0px 0px 100px orangered;
+			}
+			
+			.box1 {
+				transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(-150px);
+			}
+			
+			.box2 {
+				transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateZ(-150px);
+			}
+			
+			.box3 {
+				transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateZ(150px);
+			}
+			
+			.box4 {
+				transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg) translateZ(-150px);
+			}
+			
+			.box5 {
+				transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg) translateZ(150px);
+			}
+			
+			.box6 {
+				transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(150px);
+			}
+			
+			#control {
+				width: 700px;
+				height: 150px;
+				margin: 0 auto;
+				line-height: 30px;
+			}
+			
+			#control input {
+				width: 500px;
+			}
+		</style>
+	</head>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+	<body>
+		<div id="wrap">
+			<div class="box box1">
+				6
+			</div>
+			<div class="box box2">
+				5
+			</div>
+			<div class="box box3">
+				4
+			</div>
+			<div class="box box4">
+				3
+			</div>
+			<div class="box box5">
+				2
+			</div>
+			<div class="box box6">
+				1
+			</div>
+		</div>
+		<div id="control">
+			<p>
+				X轴操作:<span class="rangeX">0</span>deg
+			</p>
+			-720<input type="range" name="rangeX" id="rangeX" min="-720" max="720" step="2" oninput="change(this)" onchange="change(this)" />720
+			<p>
+				Y轴操作:<span class="rangeY">0</span>deg
+			</p>
+			-720<input type="range" name="rangeY" id="rangeY" min="-720" max="720" step="2" oninput="change(this)" onchange="change(this)" />720
+			<p>
+				Z轴操作:<span class="rangeZ">0</span>deg
+			</p>
+			-720<input type="range" name="rangeZ" id="rangeZ" min="-720" max="720" step="2" oninput="change(this)" onchange="change(this)" />720
+			<p>
+				空间轴操作:<span class="rangeE">0</span>deg
+			</p>
+			-900<input type="range" name="rangeE" id="rangeE" min="-900" max="900" step="2" oninput="change(this)" onchange="change(this)" />900
+		</div>
+	</body>
+	<script type="text/javascript">
+		var XNumber = 0;
+		var YNumber = 0;
+		var ZNumber = 0;
+		var ENumber = 0;
+
+		function change(obj) {
+			$("." + $(obj).attr("id")).html(obj.value);
+			var Nnumber = $(obj).attr("id").substr(-1, 1);
+			if(Nnumber == "X") {
+				XNumber = obj.value;
+			} else if(Nnumber == "Y") {
+				YNumber = obj.value;
+			} else if(Nnumber == "Z") {
+				ZNumber = obj.value;
+			} else if(Nnumber == "E") {
+				ENumber = obj.value;
+			}
+			$("#wrap").css({
+				"transform": "rotateX(" + XNumber + "deg)" + " " + "rotateY(" + YNumber + "deg)" + " " + "rotateZ(" + ZNumber + "deg)" + " " + "translateZ(" + ENumber + "px)"
+			})
+		}
+	</script>
+
+</html>
